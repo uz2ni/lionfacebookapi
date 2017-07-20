@@ -1,0 +1,12 @@
+<h1><%=@post.id%>번 post를 수정할 화면입니다.</h1>
+<form action="/posts/update/<%=@post.id%>">
+    </p>제목:<input type="text" name="input_title" value="<%=@post.title%>"><br>
+    내용:<input type="content" name="input_content" value="<%=@post.content%>"><br>
+    <input type="submit">
+</form>
+
+<%= form_for @post, url: "/posts/update/#{@post.id}", method: "post" do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_field :content %>
+    <%= f.submit %>
+<% end %>

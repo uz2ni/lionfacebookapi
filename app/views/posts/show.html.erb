@@ -1,0 +1,23 @@
+<h1><%= @post.id %>번 post 입니다.</h1>
+
+<h2>제목 : <%= @post.title %></h2>
+
+<h2>내용 : <%= @post.content %></h2>
+
+<h3><a href="/" class="hi">[목록으로 가기]</a></h3>
+<h3><a href="/posts/edit/<%=@post.id%>">[수정]</a></h3>
+<h3><a href="/posts/destroy/<%=@post.id%>" data-confirm="진짜로 삭제하시겠어요?">[삭제]</a></h3>
+
+<!--(1)link_to url-->
+<%= link_to "[(1)삭제]", "/posts/destroy/#{@post.id}", class: "hi" %>
+<!--(2)link_to 컨트롤러와 액션 명시-->
+<%= link_to "[(2)삭제]", {controller: :posts, action: :destroy, post_id: @post.id}, class: "hi" %>
+<!--(3)link_to url에 이름붙여 사요하기-->
+<%= link_to "[(3)삭제]", post_destroy_path(post_id: @post.id), class: "hi" %>
+
+
+<br>
+<!--iage_tag 사용하기-->
+<img src="/assets/sample.jpg"/><br>
+
+<%= image_tag "sample.jpg", class: "hello" %>
